@@ -15,15 +15,15 @@ public class DataModel {
         initialize();
     }
 
-    public static void initialize(){
-        if(students == null){
+    public static void initialize() {
+        if (students == null) {
             File file = new File("students.csv");
-            if(file.exists()){
-                try(Scanner scanner = new Scanner(file)){
+            if (file.exists()) {
+                try (Scanner scanner = new Scanner(file)) {
                     //read header line
                     String s = scanner.nextLine();
                     students = new ArrayList<>();
-                    while (scanner.hasNext()){
+                    while (scanner.hasNext()) {
                         s = scanner.nextLine();
                         String[] strings = s.split(", ");
                         students.add(new Student(strings[0], Float.parseFloat(strings[1])));
@@ -42,11 +42,11 @@ public class DataModel {
         }
     }
 
-    public void save_Students(){
-        try(PrintWriter pw = new PrintWriter("students.csv")){
+    public void save_Students() {
+        try (PrintWriter pw = new PrintWriter("students.csv")) {
             //print header line
             pw.println("name, gpa");
-            for (Student s: students) {
+            for (Student s : students) {
                 //print each student object as string
                 pw.println(s);
             }
@@ -55,12 +55,12 @@ public class DataModel {
         }
     }
 
-    public void addStudent(Student student){
+    public void addStudent(Student student) {
         students.add(student);
     }
 
-    public Student getStudentByName(String name){
-        for (Student student :students) {
+    public Student getStudentByName(String name) {
+        for (Student student : students) {
             if (Objects.equals(student.getName(), name)) {
                 return student;
             }
@@ -68,12 +68,12 @@ public class DataModel {
         return null;
     }
 
-    public ArrayList<Student> getStudents(){
+    public ArrayList<Student> getStudents() {
         return students;
     }
 
-    public Student deleteStudentByName(String name){
-        for (Student student :students) {
+    public Student deleteStudentByName(String name) {
+        for (Student student : students) {
             if (Objects.equals(student.getName(), name)) {
                 students.remove(student);
                 return student;

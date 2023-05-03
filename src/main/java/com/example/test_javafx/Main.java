@@ -9,8 +9,6 @@ import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-
-import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 import java.util.Optional;

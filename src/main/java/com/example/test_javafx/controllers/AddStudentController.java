@@ -3,32 +3,24 @@ package com.example.test_javafx.controllers;
 import com.example.test_javafx.Navigation;
 import com.example.test_javafx.models.DataModel;
 import com.example.test_javafx.models.Student;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.Alert;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
 import java.util.ResourceBundle;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class AddStudentController implements Initializable {
+    DataModel model = new DataModel();
+    Navigation navigation = new Navigation();
     @FXML
     private VBox rootPane;
     @FXML
     private TextField name;
     @FXML
     private TextField gpa;
-    DataModel model = new DataModel();
-    Navigation navigation = new Navigation();
 
     public void onAdd() {
         model.addStudent(new Student(name.getText(), Float.parseFloat(gpa.getText())));
